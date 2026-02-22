@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Extensible Multi-Character Image Animation</title>
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <style>
+        body { font-family: 'Noto Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Google Sans', sans-serif; font-weight: bold; }
+        
+        .publication-title { font-weight: bold; }
+        .author-block { display: inline-block; margin-right: 15px; font-size: 1.1rem; }
+        .author-block a { color: #363636; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s ease; }
+        .author-block a:hover { color: #ff2e63; border-bottom-color: #ff2e63; }
+        
+        .institution-block { display: inline-block; font-size: 1rem; color: #666; margin-right: 15px; }
+        
+        .figure-caption {
+            font-size: 0.9em; color: #666; text-align: center;
+            margin-top: 0.8rem; margin-bottom: 2rem; font-style: italic; line-height: 1.4; padding: 0 1rem;
+        }
+        
+        .main-figure, .method-figure, .result-figure { margin: 2.5rem 0 1rem 0; text-align: center; }
+        .main-figure img, .method-figure img, .result-figure img {
+            width: 100%; max-width: 900px; border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease;
+        }
+        
+        .content-section { padding: 3rem 0; }
+        .content p { line-height: 1.6; margin-bottom: 1.2rem; }
+        
+        .publication-links .button { margin: 0.3rem; transition: all 0.2s ease; }
+        .publication-links .button:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+<body>
+
+    <section class="hero banner">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">
+                            MultiAnimate: Pose-Guided Image Animation Made Extensible
+                        </h1>
+                        
+                        <h2 class="title is-4" style="color: #d81b60;">CVPR 2026 Accepted</h2>
+
+                        <div class="is-size-5 publication-authors" style="margin-top: 1.5rem;">
+                            <span class="author-block">Yingcheng Hu<sup>1</sup>,</span>
+                            <span class="author-block">Haowen Gong<sup>2</sup>,</span>
+                            <span class="author-block"><a href="https://winycg.github.io/" target="_blank">Chuanguang Yang</a><sup>3,4</sup>,</span>
+                            <span class="author-block"><a href="https://people.ucas.edu.cn/~anzhulin" target="_blank">Zhulin An</a><sup>3,4, &dagger;</sup>,</span>
+                            <span class="author-block">Yongjun Xu<sup>3,4</sup>,</span>
+                            <span class="author-block"><a href="https://huage001.github.io/" target="_blank">Songhua Liu</a><sup>2, &dagger;</sup>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>ShanghaiTech University</span>
+                            <span class="author-block"><sup>2</sup>Shanghai Jiatong University</span>
+                            <span class="author-block"><sup>3</sup>State Key Laboratory of AI Safety, Institute of Computing Technology, Chinese Academy of Sciences</span>
+                            <span class="author-block"><sup>4</sup>University of Chinese Academy of Sciences</span>
+                            <span class="author-block" style="display: block; margin-top: 10px;"><small><sup>&dagger;</sup>Corresponding Authors</small></span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a href="#" target="_blank" class="external-link button is-normal is-rounded is-white">
+                                        <span class="icon"><i class="ai ai-arxiv"></i></span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="https://github.com/hyc001/MultiAnimate" target="_blank" class="external-link button is-normal is-rounded is-white">
+                                        <span class="icon"><i class="fab fa-github"></i></span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- abstract -->
+    <section class="section hero is-light abstract-section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    
+                    <!-- <div class="main-figure">
+                        <img loading="lazy" src="static/images/teaser.jpg" alt="Project Teaser" />
+                        <div class="figure-caption">
+                            <strong>Figure 1:</strong> Overview of our multi-character image animation framework. We address identity confusion and plausible occlusions, generalizing to multi-character scenarios efficiently.
+                        </div>
+                    </div> -->
+                    
+                    <div class="content has-text-justified">
+                        <p>
+                            Pose-guided human image animation aims to synthesize realistic videos of a reference character driven by a sequence of poses. While diffusion-based methods have achieved remarkable success, most existing approaches are limited to single-character animation. We observe that naively extending these methods to multi-character scenarios often leads to identity confusion and implausible occlusions between characters. To address these challenges, in this paper, we propose an extensible multi-character image animation framework built upon modern Diffusion Transformers (DiTs) for video generation. At its core, our framework introduces two novel components—Identifier Assigner and Identifier Adapter—which collaboratively capture per-person positional cues and inter-person spatial relationships. This mask-driven scheme, along with a scalable training strategy, not only enhances flexibility but also enables generalization to scenarios with more characters than those seen during training. Remarkably, trained on only a two-character dataset, our model generalizes to multi-character animation while maintaining compatibility with single-character cases. Extensive experiments demonstrate that our approach achieves state-of-the-art performance in multi-character image animation, surpassing existing diffusion-based baselines. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Method Overview -->
+    <section class="hero is-small method-section">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <h2 class="title is-3">Method Overview</h2>
+                <p>We present <strong>MultiAnimate</strong> for multi-character image animation, which is the first extensible framework built upon modern DiT-based video generators, to the best of our knowledge.</p>
+                
+                <div class="method-figure">
+                    <img loading="lazy" src="static/images/pipeline.pdf" alt="Method Pipeline" />
+                    <div class="figure-caption">
+                        <strong>Figure 1:</strong> Our pipeline contains two main streams: 
+                        the <i>reference stream</i>, which encodes the reference image and its pose to capture appearance information, 
+                        and the <i>motion stream</i>, which encodes multi-character pose sequences and tracking masks to model motion and spatial conditions. 
+                        The two streams are fused through element-wise addition of latent tokens. 
+                        The Identifier Assigner unifies per-person tracking masks into a structured label representation, 
+                        preserving spatial relationships and interactions among multiple characters. 
+                        This representation is converted to the feature space of the DiT backbone by the Identifier Adapter.
+                    </div>
+                </div>
+
+                <!-- <h3 class="title is-4">Architecture</h3>
+                <div class="content has-text-justified">
+
+                    <p>
+                        Our multi-character image animation framework is built upon modern Diffusion Transformers (DiTs). We introduce two core components to address the challenges of multi-person generation:
+                    </p>
+                    <ul>
+                        <li><strong>Identifier Assigner:</strong> Captures robust per-person positional cues and handles spatial positioning effectively.</li>
+                        <li><strong>Identifier Adapter:</strong> Analyzes and processes complex inter-person spatial relationships, ensuring plausible occlusions and preventing identity confusion.</li>
+                    </ul>
+                </div>
+                    
+                <div class="method-figure">
+                    <img loading="lazy" src="static/images/pipeline.pdf" alt="Method Pipeline" />
+                    <div class="figure-caption">
+                        <strong>Figure 2:</strong> The proposed mask-driven framework. Our method demonstrates strong zero-shot generalization to scenarios with more characters than the training data.
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- demo -->
+    <section class="section content-section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered">Demo & Results</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            our framework, trained only on two-character data, is capable of producing identity-consistent three-person videos and can, in principle, be extended to scenarios with even more participants (e.g., seven characters).
+                        </p>
+                    </div>
+                    
+                    <div class="result-figure">
+                        <video autoplay muted loop playsinline style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+                            <source src="static/images/demo2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="figure-caption">
+                            <strong>Figure 2:</strong> Two-character animation.
+                        </div>
+                    </div>
+
+                    <div class="result-figure">
+                        <video autoplay muted loop playsinline style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+                            <source src="static/images/demo3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="figure-caption">
+                            <strong>Figure 3:</strong> Three-character animation.
+                        </div>
+                    </div>
+
+                    <div class="result-figure">
+                        <video autoplay muted loop playsinline style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+                            <source src="static/images/demo4.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="figure-caption">
+                            <strong>Figure 4:</strong> Four-character animation.
+                        </div>
+                    </div>
+
+                    <div class="result-figure">
+                        <video autoplay muted loop playsinline style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+                            <source src="static/images/demo5.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="figure-caption">
+                            <strong>Figure 5:</strong> Five-character animation.
+                        </div>
+                    </div>
+
+                    <div class="result-figure">
+                        <video autoplay muted loop playsinline style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+                            <source src="static/images/demo6.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="figure-caption">
+                            <strong>Figure 6:</strong> Six-character animation.
+                        </div>
+                    </div>
+
+                    <div class="result-figure">
+                        <video autoplay muted loop playsinline style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+                            <source src="static/images/demo7.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="figure-caption">
+                            <strong>Figure 7:</strong> Seven-character animation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>
+                <!-- @inproceedings{你的姓氏2026multichar,
+  title     = {Extensible Multi-Character Image Animation built upon modern Diffusion Transformers},
+  author    = {Author 1 and Author 2 and Author 3 and Author 4},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2026}} -->
+</code></pre>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This page was built using the <a
+                                href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+                            You are free to borrow the of this website, we just ask that you link back to this page in
+                            the footer. <br> This website is licensed under a <a rel="license"
+                                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                                Commons Attribution-ShareAlike 4.0 International License</a>.
+                        </p>
+                        <p class="has-text-centered">Total clicks: <span id="busuanzi_value_site_pv"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
