@@ -38,15 +38,11 @@ Our framework, trained only on two-character data, is capable of producing ident
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/0ac48ba9-02b9-4d98-ad24-3f8486ca7d5a" autoplay muted loop playsinline width="80%"></video>
-  <br>
   <strong>Figure 1:</strong> Three-character animation.
 </div>
 
-<br>
-
 <div align="center">
   <video src="https://github.com/user-attachments/assets/5f19b816-7231-41d7-9761-1631099d2fcb" autoplay muted loop playsinline width="80%"></video>
-  <br>
   <strong>Figure 2:</strong> Four-character animation.
 </div>
 
