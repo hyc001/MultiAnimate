@@ -20,7 +20,7 @@
 
 <div align="center">
   <a href="https://arxiv.org/abs/2602.21581"><img src="https://img.shields.io/badge/arXiv-2602.21581-b31b1b.svg?logo=arXiv" alt="arXiv"></a>
-  <a href="https://github.com/hyc001/MultiAnimate"><img src="https://img.shields.io/badge/Code-GitHub-181717.svg?logo=GitHub" alt="GitHub"></a>
+  <a href="https://hyc001.github.io/MultiAnimate/"><img src="https://img.shields.io/badge/Project%20Page-Website-1E90FF.svg" alt="Project Page"></a>
   <a href="https://huggingface.co/N00B0DY/MultiAnimate"><img src="https://img.shields.io/badge/🤗_Weights-HuggingFace-ffc107.svg" alt="Hugging Face"></a>
 </div>
 
@@ -34,18 +34,20 @@ We present **MultiAnimate** for multi-character image animation, which is the fi
 
 ## 🎥 Demos
 
+Our framework, trained only on two-character data, is capable of producing identity-consistent three-person videos and can, in principle, be extended to scenarios with even more participants.
+
 <div align="center">
-  <video src="https://github.com/hyc001/MultiAnimate/raw/web/static/images/demo3.mp4" autoplay muted loop playsinline width="80%"></video>
+  <video src="https://raw.githubusercontent.com/hyc001/MultiAnimate/web/static/images/demo3.mp4" autoplay muted loop playsinline width="80%"></video>
   <br>
-  <strong>Figure 1:</strong> Three-character animation.
+  <strong>Figure 3:</strong> Three-character animation.
 </div>
 
 <br>
 
 <div align="center">
-  <video src="https://github.com/hyc001/MultiAnimate/raw/web/static/images/demo4.mp4" autoplay muted loop playsinline width="80%"></video>
+  <video src="https://raw.githubusercontent.com/hyc001/MultiAnimate/web/static/images/demo4.mp4" autoplay muted loop playsinline width="80%"></video>
   <br>
-  <strong>Figure 2:</strong> Four-character animation.
+  <strong>Figure 4:</strong> Four-character animation.
 </div>
 
 ## 💻 Code
