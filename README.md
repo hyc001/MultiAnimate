@@ -16,13 +16,13 @@
   <small><sup>&dagger;</sup>Corresponding Authors</small>
 </div>
 
+<br>
+
 <div align="center">
   <a href="https://arxiv.org/abs/2602.21581"><img src="https://img.shields.io/badge/arXiv-2602.21581-b31b1b.svg?logo=arXiv" alt="arXiv"></a>
   <a href="https://hyc001.github.io/MultiAnimate/"><img src="https://img.shields.io/badge/Project%20Page-Website-1E90FF.svg" alt="Project Page"></a>
   <a href="https://huggingface.co/N00B0DY/MultiAnimate"><img src="https://img.shields.io/badge/🤗_Weights-HuggingFace-ffc107.svg" alt="Hugging Face"></a>
 </div>
-
-<br>
 
 ## 📖 Introduction
 We present **MultiAnimate** for multi-character image animation, which is the first extensible framework built upon modern DiT-based video generators, to the best of our knowledge.
