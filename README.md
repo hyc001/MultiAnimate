@@ -16,8 +16,6 @@
   <small><sup>&dagger;</sup>Corresponding Authors</small>
 </div>
 
-<br>
-
 <div align="center">
   <a href="https://arxiv.org/abs/2602.21581"><img src="https://img.shields.io/badge/arXiv-2602.21581-b31b1b.svg?logo=arXiv" alt="arXiv"></a>
   <a href="https://hyc001.github.io/MultiAnimate/"><img src="https://img.shields.io/badge/Project%20Page-Website-1E90FF.svg" alt="Project Page"></a>
