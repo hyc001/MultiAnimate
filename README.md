@@ -1,4 +1,4 @@
-<h1 align="center">MultiAnimate: Pose-Guided Image Animation Made Extensible</h1>
+<h1 align="left">MultiAnimate: Pose-Guided Image Animation Made Extensible</h1>
 
 <div align="center">
   Yingcheng Hu<sup>1,2,3*</sup>&nbsp;&nbsp;&nbsp;
