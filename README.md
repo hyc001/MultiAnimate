@@ -58,5 +58,5 @@ If you find our work helpful, please consider citing:
       eprint={2602.21581},
       archivePrefix={arXiv},
       primaryClass={cs.CV},
-      url={[https://arxiv.org/abs/2602.21581](https://arxiv.org/abs/2602.21581)}, 
+      url={https://arxiv.org/abs/2602.21581}, 
 }
