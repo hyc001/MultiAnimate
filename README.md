@@ -37,7 +37,7 @@ We present **MultiAnimate** for multi-character image animation, which is the fi
 Our framework, trained only on two-character data, is capable of producing identity-consistent three-person videos and can, in principle, be extended to scenarios with even more participants.
 
 <div align="center">
-  <video src="https://raw.githubusercontent.com/hyc001/MultiAnimate/web/static/images/demo3.mp4" autoplay muted loop playsinline width="80%"></video>
+  <video src="https://github.com/hyc001/MultiAnimate/tree/web/static/images/demo3.mp4" autoplay muted loop playsinline width="80%"></video>
   <br>
   <strong>Figure 3:</strong> Three-character animation.
 </div>
@@ -45,7 +45,7 @@ Our framework, trained only on two-character data, is capable of producing ident
 <br>
 
 <div align="center">
-  <video src="https://raw.githubusercontent.com/hyc001/MultiAnimate/web/static/images/demo4.mp4" autoplay muted loop playsinline width="80%"></video>
+  <video src="https://github.com/hyc001/MultiAnimate/tree/web/static/images/demo4.mp4" autoplay muted loop playsinline width="80%"></video>
   <br>
   <strong>Figure 4:</strong> Four-character animation.
 </div>
