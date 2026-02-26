@@ -37,7 +37,7 @@ We present **MultiAnimate** for multi-character image animation, which is the fi
 Our framework, trained only on two-character data, is capable of producing identity-consistent three-person videos and can, in principle, be extended to scenarios with even more participants.
 
 <div align="center">
-  <img src="static/demo3.gif" width="80%" alt="Three-character animation">
+  <img src="static/demo3.gif" width="100%" alt="Three-character animation">
   <br>
   <strong>Figure 1:</strong> Three-character animation.
 </div>
@@ -45,7 +45,7 @@ Our framework, trained only on two-character data, is capable of producing ident
 <br>
 
 <div align="center">
-  <img src="static/demo4.gif" width="80%" alt="Four-character animation">
+  <img src="static/demo4.gif" width="100%" alt="Four-character animation">
   <br>
   <strong>Figure 2:</strong> Four-character animation.
 </div>
