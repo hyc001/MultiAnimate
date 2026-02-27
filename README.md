@@ -104,28 +104,6 @@ huggingface-cli download N00B0DY/MultiAnimate --include "epoch=23-step=4200-mult
 CUDA_VISIBLE_DEVICES="0" python examples/inference_multi4.py
 ```
 
-## 🚀 Inference
-
-**1. Standard 3-Character Animation:**
-```bash
-python inference.py \
-  --reference_image assets/demo_images/sample_3persons.png \
-  --pose_video assets/demo_poses/pose_3persons.mp4 \
-  --checkpoint_path checkpoints/epoch=39-step=7000.ckpt \
-  --num_characters 3 \
-  --output_path results/output_3persons.mp4
-```
-
-**2. Extended 7-Character Animation:**
-```bash
-python inference.py \
-  --reference_image assets/demo_images/sample_7persons.png \
-  --pose_video assets/demo_poses/pose_7persons.mp4 \
-  --checkpoint_path checkpoints/epoch=23-step=4200-multi.ckpt \
-  --num_characters 7 \
-  --output_path results/output_7persons.mp4
-```
-
 ## 🏃‍♂️ Training & Data Preparation
 
 ### 1. Data Processing
