@@ -1,0 +1,12 @@
+CUDA_VISIBLE_DEVICES="0,1" python examples/train_multi.py \
+   --task train  \
+   --train_architecture lora \
+   --lora_rank 128 --lora_alpha 128  \
+   --pretrained_lora_path checkpoints/epoch=39-step=7000.ckpt/output_dir  \
+   --dataset_path /processed_data/   \
+   --output_path /models_multi   \
+   --max_epochs 1   --learning_rate 1e-4   \
+   --accumulate_grad_batches 1   \
+   --use_gradient_checkpointing \
+   --use_gradient_checkpointing_offload \
+   --training_strategy "deepspeed_stage_2" 

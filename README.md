@@ -44,8 +44,123 @@ Our framework, trained only on two-character data, is capable of producing ident
   <strong>Figure 2:</strong> Four-character animation.
 </div>
 
-## 💻 Code
-🚧 **Coming Soon!** We are currently cleaning up the codebase and will release the inference scripts shortly. Please stay tuned!
+<!-- ## 💻 Code
+🚧 **Coming Soon!** We are currently cleaning up the codebase and will release the inference scripts shortly. Please stay tuned! -->
+## ⚙️ Environment Setup
+
+We recommend using Anaconda to manage your environment. 
+
+```bash
+conda create -n multianimate python=3.10.16
+conda activate multianimate
+
+# CUDA 12.1
+pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 --index-url https://download.pytorch.org/whl/cu121
+
+git clone https://github.com/hyc001/MultiAnimate.git
+cd MultiAnimate
+# DiffSynth-Studio from source code
+pip install -e .
+
+pip install -r requirements.txt
+```
+
+## 🚀 Quick Demo
+
+Before running the demos, please ensure you have the Hugging Face CLI installed:
+```bash
+pip install -U "huggingface_hub[cli]"
+```
+
+### 1. Download Base Model
+MultiAnimate is built upon the Wan2.1 framework. First, download the base Wan2.1-I2V-14B-720P model into your `checkpoints` directory:
+```bash
+huggingface-cli download Wan-AI/Wan2.1-I2V-14B-720P --local-dir checkpoints/Wan2.1-I2V-14B-720P
+```
+
+### 2. Download Demo Dataset
+We provide pre-annotated data (including reference images and poses) for 3-person and 4-person generation scenarios. Download the `demo` folder from our repository:
+```bash
+huggingface-cli download N00B0DY/MultiAnimate --include "demo/*" --local-dir .
+```
+
+### 3. Demo 1: Standard Model (Up to 3 Characters)
+Download our standard checkpoint optimized for complex human interactions, and run the inference script:
+```bash
+# Download MultiAnimate weights
+huggingface-cli download N00B0DY/MultiAnimate --include "epoch=39-step=7000.ckpt/*" --local-dir checkpoints/
+
+# Run inference
+CUDA_VISIBLE_DEVICES="0" python examples/inference_multi3.py
+```
+
+### 4. Demo 2: Extended Model (Up to 7 Characters)
+We provide the extended model. Here, we use a 4-person scenario as an example:
+```bash
+# Download extended MultiAnimate weights
+huggingface-cli download N00B0DY/MultiAnimate --include "epoch=23-step=4200-multi.ckpt/*" --local-dir checkpoints/
+
+# Run inference for 4 characters
+CUDA_VISIBLE_DEVICES="0" python examples/inference_multi4.py
+```
+
+## 🚀 Inference
+
+**1. Standard 3-Character Animation:**
+```bash
+python inference.py \
+  --reference_image assets/demo_images/sample_3persons.png \
+  --pose_video assets/demo_poses/pose_3persons.mp4 \
+  --checkpoint_path checkpoints/epoch=39-step=7000.ckpt \
+  --num_characters 3 \
+  --output_path results/output_3persons.mp4
+```
+
+**2. Extended 7-Character Animation:**
+```bash
+python inference.py \
+  --reference_image assets/demo_images/sample_7persons.png \
+  --pose_video assets/demo_poses/pose_7persons.mp4 \
+  --checkpoint_path checkpoints/epoch=23-step=4200-multi.ckpt \
+  --num_characters 7 \
+  --output_path results/output_7persons.mp4
+```
+
+## 🏃‍♂️ Training & Data Preparation
+
+### 1. Data Processing
+To train or fine-tune the model, you need to extract human poses and character masks from your video data. We recommend the following pipeline, though you are completely free to use other equivalent methods:
+
+* **Pose Extraction:** We utilize [DWPose](https://github.com/IDEA-Research/DWPose) to extract human skeletal keypoints.
+* **Mask Extraction:** We use [Sa2VA-8B](https://github.com/bytedance/Sa2VA) to segment the characters. A typical prompt used for extraction looks like: `"<image>Please segment the left person"`.
+
+After processing, your `processed_data` directory should be organized as follows:
+
+```text
+processed_data/
+├── video1/
+│   ├── frames.pkl
+│   ├── mask_female.pkl
+│   ├── mask_male.pkl
+│   └── pose.pkl
+├── video2/
+│   ├── frames.pkl
+│   ├── ...
+└── ...
+```
+
+### 2. Training
+**💡 Memory Saving Tip:** Based on our experience, if you are training on an A100 GPU (or GPUs with similar VRAM constraints), we highly recommend using **prompt feature caching** to save memory. 
+Please refer to `examples/prompt_emb.py` for feature extraction and `examples/train_multi.py` for the core training logic.
+
+Once your data and environment are ready, you can start the training process by running:
+
+```bash
+sh train.sh
+```
+
+## 🙏 Acknowledgements
+Our codebase is built upon the wonderful [UniAnimate-DiT](https://github.com/ali-vilab/UniAnimate-DiT). We sincerely thank the authors for their fantastic open-source contribution to the community!
 
 ## 📝 BibTeX
 If you find our work helpful, please consider citing:
