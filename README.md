@@ -140,6 +140,21 @@ sh train.sh
 ## 🙏 Acknowledgements
 Our codebase is built upon the wonderful [UniAnimate-DiT](https://github.com/ali-vilab/UniAnimate-DiT). We sincerely thank the authors for their fantastic open-source contribution to the community!
 
+## 🗂️ Dataset: Gen-Dataset for Scene Generalization
+
+We release the **Gen-dataset** introduced in our paper. You can optionally incorporate this dataset into your training phase for scene generalization.
+
+You can easily download the zipped dataset from our Hugging Face repository and extract it:
+
+```bash
+# Download the dataset zip file to the data/ folder
+huggingface-cli download N00B0DY/MultiAnimate Gen-dataset.zip --local-dir data/
+
+# Unzip the dataset
+cd data/
+unzip Gen-dataset.zip
+```
+
 ## 📝 BibTeX
 If you find our work helpful, please consider citing:
 
