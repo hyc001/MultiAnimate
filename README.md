@@ -159,12 +159,10 @@ unzip Gen-dataset.zip
 If you find our work helpful, please consider citing:
 
 ```bibtex
-@article{hu2026multianimateposeguidedimageanimation,
-      title={MultiAnimate: Pose-Guided Image Animation Made Extensible}, 
-      author={Yingcheng Hu and Haowen Gong and Chuanguang Yang and Zhulin An and Yongjun Xu and Songhua Liu},
-      year={2026},
-      eprint={2602.21581},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2602.21581}, 
+@inproceedings{hu2026multianimate,
+  title={MultiAnimate: Pose-Guided Image Animation Made Extensible},
+  author={Hu, Yingcheng and Gong, Haowen and Yang, Chuanguang and An, Zhulin and Xu, Yongjun and Liu, Songhua},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={9306--9316},
+  year={2026}
 }
